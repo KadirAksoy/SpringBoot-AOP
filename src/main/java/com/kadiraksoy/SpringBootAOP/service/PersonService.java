@@ -23,7 +23,11 @@ public class PersonService {
     }
 
     public Person createPerson(Person person) {
-        return personRepository.save(person);
+
+        Person newPerson = personRepository.save(person);
+        System.out.println(person.getName()+ " "+ "eklendi");
+
+        return newPerson;
     }
 
     public Person updatePerson(Long id, Person updatedPerson) {
@@ -36,5 +40,9 @@ public class PersonService {
 
     public void deletePerson(Long id) {
         personRepository.deleteById(id);
+    }
+
+    public void aspectExample(){
+        System.out.println("Sade haliyle PersonService aspect için fonksiyon örneğidir");
     }
 }
