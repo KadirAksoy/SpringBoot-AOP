@@ -20,6 +20,8 @@ public class LoggingAspect {
 
     // @AfterThrowing bir exception fırlatıldıktan sonra gerçekleşir
 
+    // @Around bir metodtan önce ve sonra çalışır.
+
 
     // Tüm servislerdeki aspectExample() metodundan önce çalışır.
     @Before("execution(public void aspectExample())")
