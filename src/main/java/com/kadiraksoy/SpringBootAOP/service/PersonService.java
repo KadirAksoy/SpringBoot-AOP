@@ -45,4 +45,8 @@ public class PersonService {
     public void aspectExample(){
         System.out.println("Sade haliyle PersonService aspect için fonksiyon örneğidir");
     }
+
+    public void boolAspectExample(){
+        System.out.println("Sade haliyle PersonService bool aspect için fonksiyon örneğidir");
+    }
 }

@@ -20,6 +20,7 @@ public class SpringBootAopApplication {
 	CommandLineRunner runner(PersonService personService, DumyService dumyService){
 		return args -> {
 			demoBeforeAdvice(personService, dumyService);
+			personService.createPerson(new Person("kadir", 22));
 
 		};
 	}
@@ -28,6 +29,8 @@ public class SpringBootAopApplication {
 		personService.aspectExample();
 
 		dumyService.aspectExample();
+
+		personService.boolAspectExample();
 		//personService.createPerson(new Person("yeni insan", 1));
 	}
 
