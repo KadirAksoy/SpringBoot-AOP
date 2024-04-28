@@ -9,6 +9,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.List;
+
 @SpringBootApplication
 public class SpringBootAopApplication {
 
@@ -20,7 +22,8 @@ public class SpringBootAopApplication {
 	CommandLineRunner runner(PersonService personService, DumyService dumyService){
 		return args -> {
 			demoBeforeAdvice(personService, dumyService);
-			personService.createPerson(new Person("kadir", 22));
+//			personService.createPerson(new Person("kadir", 22));
+			demoAfterReturningAdvice(personService);
 
 		};
 	}
@@ -31,7 +34,14 @@ public class SpringBootAopApplication {
 		dumyService.aspectExample();
 
 		personService.boolAspectExample();
-		//personService.createPerson(new Person("yeni insan", 1));
+		personService.createPerson(new Person("yeni insan", 1));
+		personService.createPerson(new Person("yeni insan 2", 2));
+		personService.createPerson(new Person("yeni insan 3", 3));
+
+	}
+
+	private void demoAfterReturningAdvice(PersonService personService){
+		List<Person> personList = personService.getAllPersons();
 	}
 
 }
